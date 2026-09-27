@@ -1,3 +1,6 @@
 [workspace]
 members = ["sim"]
 resolver = "3"
+
+[profile.release]
+overflow-checks = true
