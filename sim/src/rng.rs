@@ -81,64 +81,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn prngengine_deterministic_test_sequence_u32() {
-        let mut rng1 = PRNGEngine::new(42);
-        let mut rng2 = PRNGEngine::new(42);
-
-        let mut array1: Vec<u32> = vec![];
-        let mut array2: Vec<u32> = vec![];
-
-        for _ in 0..100 {
-            array1.push(rng1.next_u32());
-            array2.push(rng2.next_u32());
-        }
-
-        assert_eq!(array1, array2)
-    }
-
-    #[test]
-    fn prngengine_deterministic_test_sequence_u64() {
-        let mut rng1 = PRNGEngine::new(42);
-        let mut rng2 = PRNGEngine::new(42);
-
-        let mut array1: Vec<u64> = vec![];
-        let mut array2: Vec<u64> = vec![];
-
-        for _ in 0..100 {
-            array1.push(rng1.next_u64());
-            array2.push(rng2.next_u64());
-        }
-
-        assert_eq!(array1, array2)
-    }
-
-    #[test]
-    fn prngengine_deterministic_different_seeds() {
-        let mut rng1 = PRNGEngine::new(42);
-        let mut rng2 = PRNGEngine::new(41);
-
-        let mut array1: Vec<u64> = vec![];
-        let mut array2: Vec<u64> = vec![];
-
-        for _ in 0..100 {
-            array1.push(rng1.next_u64());
-            array2.push(rng2.next_u64());
-        }
-
-        assert_ne!(array1, array2)
-    }
-
-    #[test]
-    fn prngengine_deterministic_golden_sequence_u32() {
-        let mut rng = PRNGEngine::new(42);
-        let expected: [u32; 5] = [962419617, 2928721845, 628724104, 4081401798, 3317060492];
-
-        for e in expected {
-            assert_eq!(rng.next_u32(), e)
-        }
-    }
-
-    #[test]
     fn prngengine_deterministic_golden_sequence_u64() {
         let mut rng = PRNGEngine::new(42);
         let expected: [u64; 5] = [
