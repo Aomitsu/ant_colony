@@ -49,6 +49,10 @@ impl PRNGEngine {
     pub fn next_u64(&mut self) -> u64 {
         self.rng.next_u64()
     }
+    /// Uniform draw in `[0, n)` via multiply-shift, without division
+    pub fn span(&mut self, n: u32) -> u32 {
+        ((self.next_u32() as u64 * n as u64) >> 32) as u32
+    }
     /// Get the offset from the start of the stream, in 32-bit words.
     pub fn word_pos(&self) -> u128 {
         self.rng.get_word_pos()
