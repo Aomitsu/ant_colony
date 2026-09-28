@@ -63,7 +63,7 @@ impl Cfg {
         }
         if self.grid.generator.map_max_attempts == 0 {
             return Err(invalid(
-                "grid.gen.map_max_attempts needs to be >= 1".to_string(),
+                "grid.generator.map_max_attempts needs to be >= 1".to_string(),
             ));
         }
         Ok(())
