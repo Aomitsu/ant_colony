@@ -1,0 +1,8 @@
+(
+  grid: (
+    w: 128, h: 96,
+    generator: (
+      map_max_attempts:    8,
+    ),
+  ),
+)

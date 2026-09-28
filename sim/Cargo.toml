@@ -6,3 +6,5 @@ edition = "2024"
 [dependencies]
 rand_core = "=0.10.1"
 rand_chacha = "=0.10.0"
+serde = { version = "1", features = ["derive"] }
+ron = "0.12.2"
